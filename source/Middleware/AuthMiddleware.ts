@@ -8,11 +8,7 @@ export abstract class AuthMiddleware {
   private constructor() {}
 
   public static authenticate(req: Request, res: Response, next: () => void) {
-    if (
-      typeof req.cookies.token !== 'string' &&
-      !req.cookies.token &&
-      !req.cookies
-    ) {
+    if (!req.cookies || !req.cookies.token) {
       throw new MissingToken('No token found');
     }
 
@@ -26,7 +22,9 @@ export abstract class AuthMiddleware {
 
     jwt.verify(token, Globals.JWT_SECRET, (err: any, decoded: any) => {
       if (err) {
-        return res.status(401).json({ error: 'Invalid token' });
+        return res
+          .status(HttpStatusCode.Unauthorized)
+          .json({ error: 'Invalid token' });
       }
 
       // Attach the decoded user to the request object
