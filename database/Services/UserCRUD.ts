@@ -54,15 +54,15 @@ export class UserCRUD {
   public static async getAdminUsers(): Promise<IUser[]> {
     const adminRole = await UserRole.findOne({
       perm_level: { $gte: 10 }
-    }).lean();
+    });
 
     if (!adminRole) {
       return [];
     }
 
-    const adminUsers = await User.find({ role: adminRole._id })
-      .populate('role')
-      .lean();
+    const adminUsers = await User.find({ role: adminRole._id }).populate(
+      'role'
+    );
 
     return adminUsers;
   }
