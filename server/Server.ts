@@ -38,10 +38,10 @@ export class Server {
 
   private configureRoutes(): void {
     const storage = multer.memoryStorage();
-    const upload = multer({ storage: storage });
+    // const upload = multer({ storage: storage });
 
     this.app.use('/api', new GetRouter().router);
-    this.app.use('/api', upload.any(), new PostRouter().router);
+    this.app.use('/api', new PostRouter().router);
     this.app.use('/api', new PutRouter().router);
   }
 
