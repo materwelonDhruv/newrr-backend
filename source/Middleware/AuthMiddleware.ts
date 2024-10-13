@@ -9,11 +9,11 @@ export abstract class AuthMiddleware {
 
   public static authenticate(req: Request, res: Response, next: () => void) {
     if (
-      req.cookies &&
-      req.cookies.token &&
-      typeof req.cookies.token === 'string'
+      typeof req.cookies.token !== 'string' &&
+      !req.cookies.token &&
+      !req.cookies
     ) {
-      throw new MissingToken('No token provided');
+      throw new MissingToken('No token found');
     }
 
     const token = req.cookies.token as string;
