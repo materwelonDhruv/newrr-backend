@@ -21,7 +21,7 @@ export class Jotform extends Handler<ServerEvent> {
 
     console.log(animalData);
 
-    await axios.post(`${Globals.API_URL}/animals`, {
+    await axios.post(`${Globals.API_URL}/animal`, {
       name: animalData.name,
       species: animalData.species,
       sex: animalData.sex,
