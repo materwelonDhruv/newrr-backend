@@ -120,7 +120,7 @@ export class GoogleAuth extends Handler<ServerEvent> implements IHasChecks {
     const cookieOptions: CookieOptions = {
       httpOnly: true,
       secure: Globals.IS_PRODUCTION, // Use secure in production
-      sameSite: 'strict',
+      sameSite: 'none',
       maxAge: 1000 * 60 * 60 * 24 * 90 // 90 days
     };
     this.event.res
