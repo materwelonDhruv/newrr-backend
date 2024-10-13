@@ -13,6 +13,14 @@
     "noUnusedLocals": false,
     "skipLibCheck": true
   },
-  "include": ["source", "library", "database", "test", "server", "docs"],
+  "include": [
+    "source",
+    "library",
+    "database",
+    "test",
+    "server",
+    "docs",
+    "./index.ts"
+  ],
   "exclude": ["node_modules", "**/*.spec.ts"]
 }
