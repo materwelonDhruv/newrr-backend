@@ -31,7 +31,7 @@ export class Server {
       })
     );
 
-    this.app.options('*', cors()); // Manually handle OPTIONS requests
+    this.app.options('*', cors());
     this.app.use(cookieParser());
     this.app.use(express.json());
   }

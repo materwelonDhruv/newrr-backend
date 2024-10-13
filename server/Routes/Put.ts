@@ -8,7 +8,7 @@ export class PutRouter extends RequestRouter {
   }
 
   initializeRoutes() {
-    this.router.put('/animal', (req, res) => {
+    this.router.put('/put/animal', (req, res) => {
       this.handleRequest(ValidRoutes.UpdateAnimalById, req, res, true);
     });
   }

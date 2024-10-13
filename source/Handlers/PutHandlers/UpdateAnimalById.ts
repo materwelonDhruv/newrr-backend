@@ -22,6 +22,8 @@ export class UpdateAnimalById
 
   constructor(event: ServerEvent) {
     super(event);
+
+    console.log(`I'm here`);
   }
 
   private checkIdInHeaders(): void {

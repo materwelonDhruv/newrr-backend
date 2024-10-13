@@ -24,11 +24,11 @@ export class PostRouter extends RequestRouter {
       this.handleRequest(ValidRoutes.JotformCheckin, req, res, false);
     });
 
-    this.router.post('/animal', (req, res) => {
+    this.router.post('/post/animal', (req, res) => {
       this.handleRequest(ValidRoutes.CreateAnimal, req, res, false);
     });
 
-    this.router.post('/behavior', (req, res) => {
+    this.router.post('/post/behavior', (req, res) => {
       this.handleRequest(ValidRoutes.CreateBehavior, req, res, true);
     });
   }

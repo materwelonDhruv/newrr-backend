@@ -21,7 +21,7 @@ export class GetAnimalById extends Handler<ServerEvent> implements IHasChecks {
     const header = this.event.req.headers as { id: string };
 
     if (!header.id) {
-      throw new MissingHeaders('Missing animalId', ['id']);
+      throw new MissingHeaders('Missing id', ['id']);
     }
 
     this.id = header.id;

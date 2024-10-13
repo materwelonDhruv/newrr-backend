@@ -14,20 +14,20 @@ export class GetBehaviorByName
   extends Handler<ServerEvent>
   implements IHasChecks
 {
-  private declare behaviorName: string;
+  private declare name: string;
 
   constructor(event: ServerEvent) {
     super(event);
   }
 
   private checkBehaviorName(): void {
-    const body = this.event.req.body as { behaviorName: string };
+    const body = this.event.req.body as { name: string };
 
-    if (!body.behaviorName) {
-      throw new MissingBody('Missing animalId', ['behaviorName']);
+    if (!body.name) {
+      throw new MissingBody('Missing name', ['name']);
     }
 
-    this.behaviorName = body.behaviorName;
+    this.name = body.name;
   }
 
   @Catchable()
@@ -41,7 +41,7 @@ export class GetBehaviorByName
 
   @Catchable()
   async execute(): Promise<void> {
-    const behavior = await BehaviorCRUD.findBehaviorByName(this.behaviorName);
+    const behavior = await BehaviorCRUD.findBehaviorByName(this.name);
 
     this.event.res.status(HttpStatusCode.Ok).send(behavior);
   }
