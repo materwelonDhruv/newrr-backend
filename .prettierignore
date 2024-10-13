@@ -1,0 +1,11 @@
+# Dependency directories
+node_modules/
+
+# eslint
+.eslintcache
+.eslintrc.js
+.eslintrc
+
+# dotenv environment variables file
+.env.production
+.env.development
