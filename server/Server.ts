@@ -7,6 +7,8 @@ import { LoggerUtils } from '../library/Utilities/LoggerUtils';
 import { GetRouter } from './Routes/Get';
 import { PostRouter } from './Routes/Post';
 import { PutRouter } from './Routes/Put';
+import { Request, Response } from 'express';
+import path from 'path';
 
 export class Server {
   private readonly app: Application;
@@ -18,7 +20,6 @@ export class Server {
 
     this.configureMiddleware();
     this.configureRoutes();
-    // this.configureErrorHandling();
   }
 
   private configureMiddleware(): void {
@@ -43,6 +44,21 @@ export class Server {
     this.app.use('/api', new GetRouter().router);
     this.app.use('/api', upload.any(), new PostRouter().router);
     this.app.use('/api', new PutRouter().router);
+
+    this.app.use(
+      '/docs',
+      express.static(path.join(__dirname, '../docs'), {
+        setHeaders: (res, path) => {
+          if (path.endsWith('.html')) {
+            res.setHeader('Content-Type', 'text/html');
+          } else if (path.endsWith('.css')) {
+            res.setHeader('Content-Type', 'text/css');
+          } else if (path.endsWith('.js')) {
+            res.setHeader('Content-Type', 'application/javascript');
+          }
+        }
+      })
+    );
   }
 
   public start(): void {
