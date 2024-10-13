@@ -12,5 +12,7 @@
     "strict": true,
     "noUnusedLocals": false,
     "skipLibCheck": true
-  }
+  },
+  "include": ["source", "library", "database", "test", "server", "docs"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

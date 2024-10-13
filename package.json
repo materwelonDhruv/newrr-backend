@@ -10,9 +10,10 @@
     "lint": "eslint 'source' 'library' 'database' 'test' 'server'",
     "lint:fix": "p run lint && --fix",
     "prettier": "prettier --write 'source' 'library' 'database' 'test' 'server'",
-    "build": "tsc -p .",
+    "build": "tsc -p . && npm run copy-docs",
     "start": "npm run build && node dist/index.js",
-    "docs": "typedoc"
+    "docs": "typedoc",
+    "copy-docs": "cp -r docs dist/"
   },
   "keywords": [],
   "author": "materwelon",
