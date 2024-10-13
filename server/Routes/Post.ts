@@ -25,7 +25,7 @@ export class PostRouter extends RequestRouter {
     });
 
     this.router.post('/animal', (req, res) => {
-      this.handleRequest(ValidRoutes.CreateAnimal, req, res, true);
+      this.handleRequest(ValidRoutes.CreateAnimal, req, res, false);
     });
 
     this.router.post('/behavior', (req, res) => {
