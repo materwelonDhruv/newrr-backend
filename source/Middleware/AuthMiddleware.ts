@@ -1,15 +1,16 @@
+import { HttpStatusCode } from 'axios';
 import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import { Globals } from '../../library/Globals/Globals';
-import { MissingToken } from '../../library/Errors/Auth';
-import { HttpStatusCode } from 'axios';
 
 export abstract class AuthMiddleware {
   private constructor() {}
 
   public static authenticate(req: Request, res: Response, next: () => void) {
     if (!req.cookies || !req.cookies.token) {
-      throw new MissingToken('No token found');
+      return res
+        .status(HttpStatusCode.Unauthorized)
+        .json({ error: 'No token provided' });
     }
 
     const token = req.cookies.token as string;
