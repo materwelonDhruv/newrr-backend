@@ -7,8 +7,6 @@
     "./source/**/*.ts"
   ],
   "out": "docs",
-  "excludeProtected": false,
-  "excludePrivate": false,
   "excludeExternals": true,
   "categorizeByGroup": true,
   "categoryOrder": [
@@ -39,8 +37,6 @@
   "hideGenerator": true,
   "disableSources": false,
   "visibilityFilters": {
-    "protected": false,
-    "private": false,
     "inherited": true,
     "external": false
   }
