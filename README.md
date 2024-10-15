@@ -1,4 +1,4 @@
-![NEWRR Home Page](https://cdn.discordapp.com/attachments/1291465085230776412/1295003728876802121/image.png?ex=670d11b4&is=670bc034&hm=d1e092de705fd0bebb3de54cad5042a1b4d17e99d9534a3e94eb99526f43a3c3&)
+![NEWRR Home Page](https://animalimagebucket.s3.us-west-1.amazonaws.com/homepage-image)
 
 ## Project Overview
 
