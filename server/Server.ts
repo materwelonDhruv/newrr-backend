@@ -2,13 +2,12 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import express, { Application } from 'express';
 import multer from 'multer';
+import path from 'path';
 import { Globals } from '../library/Globals/Globals';
 import { LoggerUtils } from '../library/Utilities/LoggerUtils';
 import { GetRouter } from './Routes/Get';
 import { PostRouter } from './Routes/Post';
 import { PutRouter } from './Routes/Put';
-import { Request, Response } from 'express';
-import path from 'path';
 
 export class Server {
   private readonly app: Application;

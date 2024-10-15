@@ -15,7 +15,7 @@ export class GetRouter extends RequestRouter {
       this.handleRequest(ValidRoutes.GetToDo, req, res, true);
     });
     this.router.get('/get-admin-users', (req, res) => {
-      this.handleRequest(ValidRoutes.GetAdminUsers, req, res, false);
+      this.handleRequest(ValidRoutes.GetAdminUsers, req, res, true);
     });
 
     this.router.get('/get/animal', (req, res) => {
